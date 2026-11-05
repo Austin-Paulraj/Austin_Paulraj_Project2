@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Project 2: Cube world</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: black; overflow: hidden; }
+    canvas { display: block; width: 100%; height: 100%; }
+
+    /* Scene visibility controls */
+    .scene {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      padding: 12px 14px;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.4;
+      z-index: 10;
+      pointer-events: none;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .scene h2 { margin: 0 0 8px; font-size: 16px; }
+    .scene p { margin: 0; }
+
+    .bar {
+      position: fixed;
+      left: 12px;
+      bottom: 12px;
+      z-index: 20;
+      pointer-events: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      color: white;
+      font: 14px Arial, sans-serif;
+    }
+
+    .bar-label { margin-left: 10px; }
+  </style>
+</head>
+<body>
+  <canvas id="c"></canvas>
+
+  <!-- Contract: tab buttons have data-level 0|1a|1b|1c|1d|2|3|4 and no onclick; panels are #scene-0 #scene-1a #scene-1b #scene-1c #scene-1d #scene-2 #scene-3 #scene-4; resolution buttons have data-grid 64|100|128|256. app.js binds clicks and the single keydown listener. -->
+  <div class="bar">
+    <button type="button" data-level="0">0</button>
+    <button type="button" data-level="1a">1a</button>
+    <button type="button" data-level="1b">1b</button>
+    <button type="button" data-level="1c">1c</button>
+    <button type="button" data-level="1d">1d</button>
+    <button type="button" data-level="2">2</button>
+    <button type="button" data-level="3">3</button>
+    <button type="button" data-level="4">4</button>
+    <span class="bar-label">Grid</span>
+    <button type="button" data-grid="64">64</button>
+    <button type="button" data-grid="100">100</button>
+    <button type="button" data-grid="128">128</button>
+    <button type="button" data-grid="256">256</button>
+  </div>
+
+  <div id="scene-0" class="scene active">
+    <h2>Project 2: Cube world | Austin Paulraj</h2>
+    <p>Level 0:  Project preliminaries</p>
+  </div>
+
+  <div id="scene-1a" class="scene">
+    <h2>Project 2: Cube world | Austin Paulraj</h2>
+    <p>Level 1a:  Procedural cube landscape</p>
+  </div>
+
+  <div id="scene-1b" class="scene">
+    <h2>Project 2: Cube world | Austin Paulraj</h2>
+    <p>Level 1b:  Random Height</p>
+  </div>
+
+  <div id="scene-1c" class="scene">
+    <h2>Project 2: Cube world | Austin Paulraj</h2>
+    <p>Level 1c:  Random Color</p>
+  </div>
+
+  <div id="scene-1d" class="scene">
+    <h2>Project 2: Cube world | Austin Paulraj</h2>
+    <p>Level 1d:  Spinning Map</p>
+  </div>
+
+  <div id="scene-2" class="scene">
+    <h2>Project 2: Cube world | Austin Paulraj</h2>
+    <p>Level 2:  Cube landscape from image data</p>
+  </div>
+
+  <div id="scene-3" class="scene">
+    <h2>Project 2: Cube world | Austin Paulraj</h2>
+    <p>Level 3:  Create a skyscape, made out of cubes</p>
+  </div>
+
+  <div id="scene-4" class="scene">
+    <h2>Project 2: Cube world | Austin Paulraj</h2>
+    <p>Level 4:  Additional experiments</p>
+  </div>
+
+  <script src="js/gl-core.js"></script>
+  <script src="js/vertex-color.js"></script>
+  <script src="js/camera.js"></script>
+  <script src="js/sample-images.js"></script>
+  <script src="js/bezier-river.js"></script>
+  <script src="js/levels.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
